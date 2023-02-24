@@ -1,69 +1,70 @@
-Hello dear web portal dev prospect!
+# Getting Started with Create React App
 
-This repository is a playground for your submission which should use PHP in the backend and HTML/JS in the frontend.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Before getting started, please hit the `Use this template` button to create a new repository on which you commit and push your code regularly for the task below. Once you are done, please mail us the link to your repository.
+## Available Scripts
 
-Good luck and have fun ☘️
+In the project directory, you can run:
 
-# Task
+### `npm start`
 
-Develop a web page that connects to a remote API, downloads a dataset, displays a table with the downloaded dataset, and provides some basic search and filter functions.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-In particular, the web page should:
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-- Request the data located at `https://api.baubuddy.de/dev/index.php/v1/tasks/select` from PHP
-- Display the downloaded data in a table showing `task`, `title`, `description` and `colorCode`. The displayed HTML element for the `colorCode` should have its color set accordingly
-- Create a search which allows searching for any of the data in the table
-- Implement auto-refresh functionality which requests the data from above every 60 minutes and updates the table with the new data without reloading the web page
-- Outside the table, create a button that opens a modal. In this modal, there should be another button that allows you to select any image from the file system. When you have selected the image, it will be displayed in the modal
-  - Note that this is not linked to the data from above
+### `npm test`
 
-# Authorization
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-It is mandatory that your requests to the API are authorized. You can find the required request below:
+### `npm run build`
 
-This is how it looks in `curl`:
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-```bash
-curl --request POST \
-  --url https://api.baubuddy.de/index.php/login \
-  --header 'Authorization: Basic QVBJX0V4cGxvcmVyOjEyMzQ1NmlzQUxhbWVQYXNz' \
-  --header 'Content-Type: application/json' \
-  --data '{
-        "username":"365",
-        "password":"1"
-}'
-```
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-The response will contain a JSON object, having the access token in `json["oauth"]["access_token"]`. For all subsequent calls this has to be added to the request headers as `Authorization: Bearer {access_token}`.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-A possible implementation in `PHP` could be the following. You don't have to adopt this, you can also customize it or use another network library.
+### `npm run eject`
 
-```php
-<?php
-$curl = curl_init();
-curl_setopt_array($curl, [
-  CURLOPT_URL => "https://api.baubuddy.de/index.php/login",
-  CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_ENCODING => "",
-  CURLOPT_MAXREDIRS => 10,
-  CURLOPT_TIMEOUT => 30,
-  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => "POST",
-  CURLOPT_POSTFIELDS => "{\"username\":\"365\", \"password\":\"1\"}",
-  CURLOPT_HTTPHEADER => [
-    "Authorization: Basic QVBJX0V4cGxvcmVyOjEyMzQ1NmlzQUxhbWVQYXNz",
-    "Content-Type: application/json"
-  ],
-]);
-$response = curl_exec($curl);
-$err = curl_error($curl);
-curl_close($curl);
-if ($err) {
-  echo "cURL Error #:" . $err;
-} else {
-  echo $response;
-}
-?>
-```
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
