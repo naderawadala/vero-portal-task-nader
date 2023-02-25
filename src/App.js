@@ -1,6 +1,6 @@
 import './App.css';
-import Modal from './Modal'
-import DataTable from './DataTable'
+import Modal from './components/Modal'
+import DataTable from './components/DataTable'
 
 function App() {
   return (

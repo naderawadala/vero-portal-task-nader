@@ -1,4 +1,4 @@
-export const sampleData = [
+export const testData = [
     {task: '1', title: "50", description: "blalblablalba", colorCode: "#560asnfa"},
     {task: '1', title: "50", description: "blalblablalba", colorCode: "#560asnfa"},
     {task: '1', title: "50", description: "blalblablalba", colorCode: "#560asnfa"},

@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react'
-import { tableHeaders } from '../constants';
+import { tableHeaders } from '../../constants';
 import { MDBDataTable } from "mdbreact";
 import { MDBSpinner } from 'mdb-react-ui-kit';
 
-const conditionalRowStyles = [
-    {
-        when: row => row.colorCode != null,
-        style: {
-            backgroundColor: "green",
-        }
-    }
-]
+// const conditionalRowStyles = [
+//     {
+//         when: row => row.colorCode != null,
+//         style: {
+//             backgroundColor: "green",
+//         }
+//     }
+// ]
 
 const DataTable = () => {
     const [rowData, setRowData] = useState(null);
