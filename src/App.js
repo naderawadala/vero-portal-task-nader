@@ -4,7 +4,7 @@ import DataTable from './DataTable'
 
 function App() {
   return (
-    <div class="container">
+    <div className="container">
       <DataTable />
       <Modal />
     </div>

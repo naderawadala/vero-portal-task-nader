@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState } from 'react';
 import {
   MDBBtn,
   MDBModal,
@@ -15,7 +15,6 @@ import {
 const Modal = () => {
   const [staticModal, setStaticModal] = useState(false)
   const [image, setImage] = useState(null)
-  console.log(image)
 
   const toggleShow = () => setStaticModal(!staticModal)
   function onImageChange(e) {
@@ -30,7 +29,7 @@ const Modal = () => {
         <MDBModalDialog>
           <MDBModalContent>
             <MDBModalHeader>
-              <MDBModalTitle>Modal title</MDBModalTitle>
+              <MDBModalTitle>Image Upload</MDBModalTitle>
               <MDBBtn className='btn-close' color='none' onClick={toggleShow}></MDBBtn>
             </MDBModalHeader>
             <MDBModalBody>
