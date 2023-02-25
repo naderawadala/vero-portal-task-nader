@@ -1,13 +1,21 @@
-import React, { useEffect, useState } from 'react'
-import cloneDeep from "lodash/cloneDeep";
-import { tableHeaders, sampleData, countPerPage } from '../constants';
+import React from 'react'
+import { tableHeaders, sampleData } from '../constants';
 import { MDBDataTable } from "mdbreact";
 
+const conditionalRowStyles = [
+    {
+      when: row => row.colorCode,
+      style: {
+        backgroundColor: "green",
+      }
+    }
+  ];
+
 const DataTable = () => {
-    // const [data, setData] = useState([]);
+    // const [rowData, setRowData] = useState([]);
     // useEffect(() => {
-    //     fetch('http://localhost:8000/data').then(res=>res.json()).then((data) => {
-    //         setData(data)
+    //     fetch('http://localhost:8000/rowData').then(res=>res.json()).then((rowData) => {
+    //         setRowData(rowData)
     //     })
     // }, [])}
 
@@ -15,10 +23,15 @@ const DataTable = () => {
         rows: sampleData,
         columns: tableHeaders
     }
-
     return (
         <>
-            <MDBDataTable striped bordered hover data={data} />;
+            <MDBDataTable
+                striped
+                bordered
+                small
+                hover
+                data={data}
+                conditionalRowStyles={conditionalRowStyles}/>
         </>
     )
 }
