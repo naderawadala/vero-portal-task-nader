@@ -56,12 +56,6 @@
 		$response = json_decode($response, true);
 		$json = json_encode(array('data' => $response));
 
-		if (file_put_contents("data.json", $json)){ 
-			echo $json;}
-		else{
-			echo "Oops! Error creating json file...";
-		}
-
-	
+		echo $json;
 	}
 	?>

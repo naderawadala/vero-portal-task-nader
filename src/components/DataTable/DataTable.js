@@ -12,12 +12,25 @@ import { MDBSpinner } from 'mdb-react-ui-kit';
 //     }
 // ]
 
+
 const DataTable = () => {
     const [rowData, setRowData] = useState(null);
+
+    let callApi = async () => {
+        try {
+            fetch('http://localhost:8000').then(res => res.json()).then((rowData) => {
+                setRowData(rowData.data)
+            })
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
+
     useEffect(() => {
-        fetch('http://localhost:8000').then(res => res.json()).then((rowData) => {
-            setRowData(rowData.data)
-        })
+        callApi();
+
+        setInterval(callApi, 1000 * 60 * 60)
     }, [])
 
     const data = {
